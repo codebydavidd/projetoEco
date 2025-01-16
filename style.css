@@ -1,0 +1,181 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-image: url(https://blog.acimaq.com.br/wp-content/uploads/2015/06/meio-ambiente.jpeg);
+    background-position: center;
+   
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    justify-content: center; /* Centraliza verticalmente os itens */
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Define uma largura máxima */
+    position: absolute;
+    left: 14%; /* Alinha à esquerda da tela */
+    top: 50%; /* Coloca na metade da tela verticalmente */
+    transform: translateY(-50%); /* Ajuste de alinhamento vertical */
+}
+
+.company-name {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem; /* Espaço entre o texto e o formulário */
+    animation: wave 3s ease-in-out; /* Animação suave */
+}
+
+/* Animação em forma de ondas */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+.form {
+    --bg-light: #020202;
+    --bg-dark: #707070;
+    --clr: #15c960;
+    --clr-alpha: #6d676760;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Aumenta o espaçamento entre os campos */
+    width: 100%;
+    max-width: 500px; /* Aumenta a largura máxima do formulário */
+    background-color: rgb(224, 224, 224);
+    padding: 5rem; /* Aumenta o preenchimento interno */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais evidente */
+}
+
+.form .input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Aumenta o espaçamento entre o label e o input */
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+    border-radius: 0.75rem; /* Bordas mais arredondadas nos campos */
+    padding: 1.5rem; /* Aumenta o preenchimento dos campos */
+    font-size: 1rem; /* Aumenta o tamanho da fonte nos campos */
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid var(--bg-dark);
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+    outline: 2px solid var(--clr);
+}
+
+.label {
+    align-self: flex-start;
+    color:#074610;
+    font-weight: 600;
+    font-size: 1.1rem; /* Aumenta o tamanho da fonte do label */
+}
+
+.form .submit {
+    padding: 1.5rem; /* Botão maior */
+    font-size: 1.2rem; /* Texto do botão maior */
+    border-radius: 4rem; /* Bordas arredondadas mais evidentes */
+    width: 100%;
+    transition: background-color 0.7s ease, transform 0.7s ease;
+}
+
+.form .submit:hover {
+    background-color: var(--clr);
+    color: white;
+    transform: scale(1.05);
+}
+
+.span {
+    text-decoration: none;
+    color: var(--bg-dark);
+    font-size: 1rem; /* Ajusta o tamanho do texto das spans */
+}
+
+.span a {
+    color:#074610;
+    font-weight: bold; /* Destaca o link */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 2.5rem; /* Ajusta o tamanho do texto em telas menores */
+    }
+
+    .container {
+        transform: translateX(0); /* Remove o deslocamento em dispositivos menores */
+    }
+
+    .form {
+        max-width: 90%; /* Ajusta a largura para telas menores */
+        padding: 3rem; /* Reduz o preenchimento interno */
+    }
+
+    .form input[type="email"],
+    .form input[type="password"] {
+        padding: 1rem; /* Reduz o preenchimento dos campos */
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .form .submit {
+        padding: 1rem; /* Botão menor para telas menores */
+        font-size: 1rem; /* Texto menor no botão */
+    }
+
+    .label {
+        font-size: 1rem; /* Reduz o tamanho da fonte do label */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 2rem; /* Reduz ainda mais em dispositivos muito pequenos */
+    }
+
+    .form {
+        gap: 1rem; /* Reduz o espaçamento entre os campos */
+        padding: 2rem; /* Reduz ainda mais o preenchimento interno */
+    }
+
+    .form input[type="email"],
+    .form input[type="password"] {
+        padding: 0.75rem; /* Reduz o preenchimento dos campos ainda mais */
+        font-size: 0.8rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .form .submit {
+        padding: 0.75rem; /* Botão ainda menor */
+        font-size: 0.9rem; /* Texto menor no botão */
+    }
+
+    .label {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte do label ainda mais */
+    }
+}

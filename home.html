@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Centralizado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="company-name animate__animated animate__backInDown 0.5s">E C O - J A R D I M</h1>
+        <!-- Adicionando classes de animação ao formulário -->
+        <form class="form animate__animated animate__bounceInLeft animate__delay-1s">
+            <span class="input-span">
+                <label for="email" class="label">Nome de usuário</label>
+                <input type="email" name="email" id="email" />
+            </span>
+            <span class="input-span">
+                <label for="password" class="label">Senha</label>
+                <input type="password" name="senha" id="password" />
+            </span>
+            <span class="span"><a href="#">Esqueceu sua senha?</a></span>
+            <input class="submit" type="submit" value="Entrar" />
+            <span class="span">Não tem uma conta? <a href="#">Cria conta</a></span>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

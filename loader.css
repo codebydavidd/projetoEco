@@ -1,0 +1,155 @@
+/* loader.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Loader Container */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    z-index: 9999;
+}
+
+/* Centralizando a árvore 3D */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Adiciona a coluna para o texto abaixo */
+}
+
+/* Árvore em 3D */
+.tree {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg);
+    animation: treeAnimate 5s linear infinite;
+    margin-bottom: 20px; /* Espaço entre a árvore e o texto */
+}
+
+/* Animação de rotação da árvore */
+@keyframes treeAnimate {
+    0% {
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+    100% {
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+}
+
+/* Posições absolutas dos ramos e tronco */
+.tree div {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateY(calc(25px * var(--x))) translateZ(0px);
+}
+
+/* Estilo dos ramos da árvore */
+.tree div.branch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #69c069, #77dd77);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-bottom: 5px solid #00000019;
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(28.5px);
+}
+
+/* Estilo do tronco da árvore */
+.tree div.stem span {
+    position: absolute;
+    top: 110px;
+    left: calc(50% - 7.5px); /* Centralizando o tronco */
+    width: 15px;
+    height: 50%;
+    background: linear-gradient(90deg, #bb4622, #df7214);
+    border-bottom: 5px solid #00000019;
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(7.5px);
+}
+
+/* Sombras da árvore */
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: rotateX(90deg) translateZ(-65px);
+}
+
+/* Estilo do texto de fotossíntese */
+.text-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Efeito de digitação */
+.loading-text {
+    font-size: 2rem;
+    height: 40px;
+    color: #2e8b57; /* Verde */
+    font-family: 'Jersey 15'; /* Estilo de máquina de escrever */
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Oculta o texto que ainda está sendo escrito */
+    width: 0; /* Começa com o texto invisível */
+    animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Efeito de digitação */
+}
+
+/* Animação de digitação */
+@keyframes typing {
+    to {
+        width: 100%;
+    }
+}
+
+/* Animação de piscada do cursor */
+@keyframes blink {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+/* Adicionando a animação de alternância dos pontos (...) */
+.loading-text::after {
+    content: '.';
+    animation: dots 1.5s steps(3) infinite; /* Animação de três pontos */
+}
+
+@keyframes dots {
+    0% {
+        content: '.';
+    }
+    33% {
+        content: '..';
+    }
+    66% {
+        content: '...';
+    }
+    100% {
+        content: '.';
+    }
+}
