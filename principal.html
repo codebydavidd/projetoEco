@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Game</title>
+    <link rel="stylesheet" href="principal.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jardinagem</h1>
+        <h2>Plante e Cuide das Plantas!</h2>
+        
+        <div class="controls">
+            <div class="control-panel">
+                <h2>Ferramentas</h2>
+                <div class="tools">
+                    <button class="tool-btn active" data-tool="plant">🌱</button>
+                    <button class="tool-btn" data-tool="remove">⛏️</button>
+                    <button class="tool-btn" data-tool="water">💧</button>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h2>Clima</h2>
+                <div class="weather">
+                    <button class="weather-btn active" data-weather="sunny">☀️</button>
+                    <button class="weather-btn" data-weather="cloudy">☁️</button>
+                    <button class="weather-btn" data-weather="windy">🌪️</button>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h2>Ambiente</h2>
+                <div class="environment">
+                    <div class="slider-container">
+                        <label>Temperatura: <span id="temp-value">25</span>°C</label>
+                        <input type="range" id="temperature" min="0" max="40" value="25">
+                    </div>
+                    <div class="slider-container">
+                        <label>Umidade: <span id="moisture-value">50</span>%</label>
+                        <input type="range" id="moisture" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="garden"></div>
+
+        <div class="stats">
+            <h2>Estatísticas do Jardim</h2>
+            <div class="stats-grid">
+                <div>Total de Plantas: <span id="total-plants">0</span></div>
+                <div>Saúde Média: <span id="average-health">100</span>%</div>
+                <div>Plantas Precisando de Água: <span id="plants-needing-water">0</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="principal.js"></script>
+</body>
+</html>

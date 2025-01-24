@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://wallpapers.com/images/hd/sky-background-arhc3vk2vfjw8hmj.jpg);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2F4F4F;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.control-panel {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 250px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #2F4F4F;
+}
+
+.tools, .weather {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tool-btn, .weather-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tool-btn:hover, .weather-btn:hover {
+    background: #e0e0e0;
+}
+
+.tool-btn.active, .weather-btn.active {
+    background: #4CAF50;
+    color: white;
+}
+
+.slider-container {
+    margin-bottom: 1rem;
+}
+
+.slider-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+#garden {
+    background-image: url(https://static.vecteezy.com/ti/fotos-gratis/t2/1955075-grama-verde-para-textura-ou-fundo-gratis-foto.jpg);
+    background-position: center;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.plant {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.plant-emoji {
+    font-size: 24px;
+    position: relative;
+}
+
+.water-indicator {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 16px;
+    animation: bounce 1s infinite;
+}
+
+.health-bar {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.health-bar-fill {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.stats {
+    margin-top: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
