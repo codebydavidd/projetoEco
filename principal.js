@@ -226,7 +226,8 @@ function showServiceDetails(service) {
 function showProjectDetails(projectId) {
     const project = projects.find(p => p.id === projectId);
     const modalContent = document.getElementById('modal-content');
-    
+    const modal = document.getElementById('modal'); // Modal container
+
     modalContent.innerHTML = `
         <h2>${project.title}</h2>
         <img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
@@ -240,8 +241,18 @@ function showProjectDetails(projectId) {
                 <li>Design personalizado</li>
             </ul>
         </div>
+        <button id="close-modal" style="margin-top: 1rem;">Fechar</button>
     `;
-    
+
+    modal.style.display = 'block'; // Exibe o modal
+    document.body.classList.add('no-scroll'); // Impede o scroll da página principal
+
+    // Evento para fechar o modal
+    document.getElementById('close-modal').addEventListener('click', () => {
+        modal.style.display = 'none'; // Esconde o modal
+        document.body.classList.remove('no-scroll'); // Restaura o scroll da página principal
+    });
+
     modal.style.display = 'flex';
 }
 

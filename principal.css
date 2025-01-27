@@ -214,6 +214,46 @@ body {
     color: var(--dark-gray);
 }
 
+.no-scroll {
+    overflow: hidden; /* Impede o scroll da página */
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-height: 80%; /* Limita a altura do modal */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    overflow-y: auto; /* Habilita o scroll interno do modal */
+    z-index: 1000;
+}
+
+.modal-content {
+    /* Remover max-height e overflow-y do conteúdo */
+    padding: 1rem; /* Adiciona um pouco de espaço interno */
+}
+
+#close-modal {
+    background-color: #f44336; /* Vermelho */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 0.5rem 1rem; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+#close-modal:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
+}
+
+
 /* Projects Section */
 .projects {
     padding: 5rem 2rem;
@@ -263,7 +303,7 @@ body {
 }
 
 .project-overlay {
-    position: absolute;
+    position:absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -325,6 +365,10 @@ body {
     padding: 1rem;
     background: var(--light-gray);
     border-radius: 5px;
+}
+
+.calculator h2 {
+    color: white;
 }
 
 /* Contact Section */
