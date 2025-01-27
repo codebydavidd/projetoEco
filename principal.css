@@ -223,7 +223,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 30%;
     max-height: 80%; /* Limita a altura do modal */
     background-color: white;
     border-radius: 8px;
