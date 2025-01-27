@@ -112,7 +112,7 @@
     font-size: 2rem;
     height: 40px;
     color: #2e8b57; /* Verde */
-    font-family: 'Jersey 15'; /* Estilo de máquina de escrever */
+    font-family: Permanent Marker; /* Estilo de máquina de escrever */
     white-space: nowrap; /* Impede a quebra de linha */
     overflow: hidden; /* Oculta o texto que ainda está sendo escrito */
     width: 0; /* Começa com o texto invisível */

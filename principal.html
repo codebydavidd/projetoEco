@@ -3,59 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Game</title>
+    <title>Eco Jardim | Paisagismo & Jardinagem Sustentável</title>
     <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Jardinagem</h1>
-        <h2>Plante e Cuide das Plantas!</h2>
-        
-        <div class="controls">
-            <div class="control-panel">
-                <h2>Ferramentas</h2>
-                <div class="tools">
-                    <button class="tool-btn active" data-tool="plant">🌱</button>
-                    <button class="tool-btn" data-tool="remove">⛏️</button>
-                    <button class="tool-btn" data-tool="water">💧</button>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">Eco Jardim</span>
+            </div>
+            <div class="nav-links">
+                <a href="#inicio" class="active">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#calculadora">Calculadora</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Transforme seu Espaço em um Paraíso Verde</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Soluções sustentáveis em paisagismo e jardinagem para criar ambientes naturais e harmoniosos</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <button class="btn primary" onclick="scrollToSection('servicos')">Nossos Serviços</button>
+                <button class="btn secondary" onclick="scrollToSection('calculadora')">Calcular Projeto</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <section id="servicos" class="services">
+        <h2 data-aos="fade-up">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-icon">🌳</div>
+                <h3>Paisagismo</h3>
+                <p>Projetos personalizados que transformam espaços em ambientes naturais únicos.</p>
+                <button class="btn secondary" onclick="showServiceDetails('paisagismo')">Saiba Mais</button>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">🌺</div>
+                <h3>Jardinagem</h3>
+                <p>Manutenção especializada para manter seu jardim sempre saudável e bonito.</p>
+                <button class="btn secondary" onclick="showServiceDetails('jardinagem')">Saiba Mais</button>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">💧</div>
+                <h3>Irrigação</h3>
+                <p>Sistemas inteligentes de irrigação para otimizar o uso da água.</p>
+                <button class="btn secondary" onclick="showServiceDetails('irrigacao')">Saiba Mais</button>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">🌱</div>
+                <h3>Hortas</h3>
+                <p>Criação de hortas orgânicas residenciais e empresariais.</p>
+                <button class="btn secondary" onclick="showServiceDetails('hortas')">Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects">
+        <h2 data-aos="fade-up">Projetos Realizados</h2>
+        <div class="project-filter" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="residencial">Residencial</button>
+            <button class="filter-btn" data-filter="comercial">Comercial</button>
+            <button class="filter-btn" data-filter="publico">Público</button>
+        </div>
+        <div class="projects-grid">
+            <!-- Projetos serão inseridos via JavaScript -->
+        </div>
+    </section>
+
+    <section id="calculadora" class="calculator">
+        <h2 data-aos="fade-up">Calculadora de Projetos</h2>
+        <div class="calculator-container" data-aos="fade-up">
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="area">Área Total (m²)</label>
+                    <input type="number" id="area" min="1" placeholder="Ex: 100">
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Projeto</label>
+                    <select id="tipo">
+                        <option value="jardim">Jardim Completo</option>
+                        <option value="horta">Horta Orgânica</option>
+                        <option value="manutencao">Manutenção Mensal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="elementos">Elementos Desejados</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="gramado"> Gramado</label>
+                        <label><input type="checkbox" value="arvores"> Árvores</label>
+                        <label><input type="checkbox" value="flores"> Flores</label>
+                        <label><input type="checkbox" value="irrigacao"> Sistema de Irrigação</label>
+                    </div>
+                </div>
+                <button class="btn primary" onclick="calcularOrcamento()">Calcular Orçamento</button>
+            </div>
+            <div class="calculator-result" id="resultado">
+                <h3>Estimativa de Orçamento</h3>
+                <div class="result-details"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <h2 data-aos="fade-up">Entre em Contato</h2>
+        <div class="contact-container" data-aos="fade-up">
+            <div class="contact-info">
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <p>Rua das Flores, 123<br>Jardinagem - SP</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <p>(11) 99999-9999<br>(11) 98888-8888</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📧</span>
+                    <p>contato@ecojardim.com.br</p>
                 </div>
             </div>
-
-            <div class="control-panel">
-                <h2>Clima</h2>
-                <div class="weather">
-                    <button class="weather-btn active" data-weather="sunny">☀️</button>
-                    <button class="weather-btn" data-weather="cloudy">☁️</button>
-                    <button class="weather-btn" data-weather="windy">🌪️</button>
+            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" id="nome" required placeholder="Seu Nome">
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder="Seu E-mail">
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="telefone" required placeholder="Seu Telefone">
+                </div>
+                <div class="form-group">
+                    <textarea id="mensagem" required placeholder="Sua Mensagem"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
 
-            <div class="control-panel">
-                <h2>Ambiente</h2>
-                <div class="environment">
-                    <div class="slider-container">
-                        <label>Temperatura: <span id="temp-value">25</span>°C</label>
-                        <input type="range" id="temperature" min="0" max="40" value="25">
-                    </div>
-                    <div class="slider-container">
-                        <label>Umidade: <span id="moisture-value">50</span>%</label>
-                        <input type="range" id="moisture" min="0" max="100" value="50">
-                    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Eco Jardim</h3>
+                <p>Transformando espaços em ambientes naturais desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <a href="#inicio">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#calculadora">Calculadora</a>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">📱 Instagram</a>
+                    <a href="#" class="social-link">👥 Facebook</a>
+                    <a href="#" class="social-link">🎥 YouTube</a>
                 </div>
             </div>
         </div>
+    </footer>
 
-        <div id="garden"></div>
-
-        <div class="stats">
-            <h2>Estatísticas do Jardim</h2>
-            <div class="stats-grid">
-                <div>Total de Plantas: <span id="total-plants">0</span></div>
-                <div>Saúde Média: <span id="average-health">100</span>%</div>
-                <div>Plantas Precisando de Água: <span id="plants-needing-water">0</span></div>
-            </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="principal.js"></script>
 </body>
 </html>

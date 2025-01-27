@@ -11,6 +11,6 @@ window.onload = () => {
 
     // Redireciona para o index.html após 5 segundos
     setTimeout(() => {
-        window.location.href = 'home.html'; // Redireciona para a pasta 'site'
+        window.location.href = 'principal.html'; // Redireciona para a pasta 'site'
     }, 5500); // Um pouco mais de tempo para a animação desaparecer
 };
