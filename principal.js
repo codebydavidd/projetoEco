@@ -65,14 +65,13 @@ function renderProjects(filter = 'todos') {
     filteredProjects.forEach(project => {
         const projectElement = document.createElement('div');
         projectElement.className = 'project-card';
-        projectElement.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" class="project-image">
+        projectElement.innerHTML = 
+            `<img src="${project.image}" alt="${project.title}" class="project-image">
             <div class="project-overlay">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
                 <button class="btn primary" onclick="showProjectDetails(${project.id})">Ver Detalhes</button>
-            </div>
-        `;
+            </div>`;
         projectsGrid.appendChild(projectElement);
     });
 }
@@ -126,22 +125,16 @@ function calcularOrcamento() {
 
     // Exibir resultado
     const resultado = document.querySelector('.result-details');
-    resultado.innerHTML = `
-        <p><strong>Área:</strong> ${area} m²</p>
+    resultado.innerHTML = 
+        `<p><strong>Área:</strong> ${area} m²</p>
         <p><strong>Tipo:</strong> ${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</p>
         <p><strong>Elementos inclusos:</strong> ${elementos.length ? elementos.join(', ') : 'Nenhum'}</p>
         <p><strong>Valor estimado:</strong> R$ ${valorTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
-        <small>*Valores aproximados, sujeitos a alteração após visita técnica.</small>
-    `;
+        <small>*Valores aproximados, sujeitos a alteração após visita técnica.</small>`;
 }
 
 // Modal
 const modal = document.getElementById('modal');
-const closeModal = document.querySelector('.close-modal');
-
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
 
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -153,8 +146,8 @@ window.addEventListener('click', (e) => {
 const servicosDetalhados = {
     paisagismo: {
         title: 'Paisagismo Profissional',
-        content: `
-            <h3>Nosso Processo de Paisagismo</h3>
+        content: 
+            `<h3>Nosso Processo de Paisagismo</h3>
             <ul>
                 <li>Análise do terreno e necessidades do cliente</li>
                 <li>Desenvolvimento do projeto personalizado</li>
@@ -162,13 +155,12 @@ const servicosDetalhados = {
                 <li>Execução profissional</li>
                 <li>Acompanhamento pós-implantação</li>
             </ul>
-            <p>Transformamos seu espaço em um ambiente único e harmonioso.</p>
-        `
+            <p>Transformamos seu espaço em um ambiente único e harmonioso.</p>`
     },
     jardinagem: {
         title: 'Serviços de Jardinagem',
-        content: `
-            <h3>Manutenção Completa</h3>
+        content: 
+            `<h3>Manutenção Completa</h3>
             <ul>
                 <li>Poda e modelagem de plantas</li>
                 <li>Controle de pragas</li>
@@ -176,13 +168,12 @@ const servicosDetalhados = {
                 <li>Limpeza e organização</li>
                 <li>Replantio quando necessário</li>
             </ul>
-            <p>Cuidamos do seu jardim com todo carinho e atenção que ele merece.</p>
-        `
+            <p>Cuidamos do seu jardim com todo carinho e atenção que ele merece.</p>`
     },
     irrigacao: {
         title: 'Sistemas de Irrigação',
-        content: `
-            <h3>Irrigação Inteligente</h3>
+        content: 
+            `<h3>Irrigação Inteligente</h3>
             <ul>
                 <li>Projeto personalizado</li>
                 <li>Automação completa</li>
@@ -190,21 +181,20 @@ const servicosDetalhados = {
                 <li>Manutenção preventiva</li>
                 <li>Monitoramento remoto</li>
             </ul>
-            <p>Tecnologia e sustentabilidade para o seu jardim.</p>
-        `
+            <p>Tecnologia e sustentabilidade para o seu jardim.</p>`
     },
     hortas: {
         title: 'Hortas Orgânicas',
-        content: `
-            <h3>Cultivo Orgânico</h3>
-            <ul> <boltAction type="file" filePath="script.js">                <li>Planejamento do espaço</li>
+        content: 
+            `<h3>Cultivo Orgânico</h3>
+            <ul>
+                <li>Planejamento do espaço</li>
                 <li>Preparação do solo</li>
                 <li>Seleção de espécies</li>
                 <li>Sistema de compostagem</li>
                 <li>Orientação para manutenção</li>
             </ul>
-            <p>Alimentos saudáveis e sustentáveis no seu espaço.</p>
-        `
+            <p>Alimentos saudáveis e sustentáveis no seu espaço.</p>`
     }
 };
 
@@ -212,12 +202,11 @@ function showServiceDetails(service) {
     const modalContent = document.getElementById('modal-content');
     const serviceDetails = servicosDetalhados[service];
     
-    modalContent.innerHTML = `
-        <h2>${serviceDetails.title}</h2>
+    modalContent.innerHTML = 
+        `<h2>${serviceDetails.title}</h2>
         <div class="service-details">
             ${serviceDetails.content}
-        </div>
-    `;
+        </div>`;
     
     modal.style.display = 'flex';
 }
@@ -226,10 +215,9 @@ function showServiceDetails(service) {
 function showProjectDetails(projectId) {
     const project = projects.find(p => p.id === projectId);
     const modalContent = document.getElementById('modal-content');
-    const modal = document.getElementById('modal'); // Modal container
 
-    modalContent.innerHTML = `
-        <h2>${project.title}</h2>
+    modalContent.innerHTML = 
+        `<h2>${project.title}</h2>
         <img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
         <div class="project-details">
             <p>${project.description}</p>
@@ -240,20 +228,14 @@ function showProjectDetails(projectId) {
                 <li>Manutenção otimizada</li>
                 <li>Design personalizado</li>
             </ul>
-        </div>
-        <button id="close-modal" style="margin-top: 1rem;">Fechar</button>
-    `;
-
-    modal.style.display = 'block'; // Exibe o modal
-    document.body.classList.add('no-scroll'); // Impede o scroll da página principal
+        </div>`;
+    
+    modal.style.display = 'flex';
 
     // Evento para fechar o modal
-    document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('close-modal').onclick = function() {
         modal.style.display = 'none'; // Esconde o modal
-        document.body.classList.remove('no-scroll'); // Restaura o scroll da página principal
-    });
-
-    modal.style.display = 'flex';
+    };
 }
 
 // Formulário de Contato

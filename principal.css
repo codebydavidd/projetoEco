@@ -214,6 +214,7 @@ body {
     color: var(--dark-gray);
 }
 
+/* Modal */
 .no-scroll {
     overflow: hidden; /* Impede o scroll da página */
 }
@@ -234,8 +235,7 @@ body {
 }
 
 .modal-content {
-    /* Remover max-height e overflow-y do conteúdo */
-    padding: 2rem; /* Adiciona um pouco de espaço interno */
+    padding: 1rem; /* Adiciona um pouco de espaço interno */
 }
 
 #close-modal {
@@ -252,7 +252,6 @@ body {
 #close-modal:hover {
     background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
 }
-
 
 /* Projects Section */
 .projects {
@@ -303,7 +302,7 @@ body {
 }
 
 .project-overlay {
-    position:absolute;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -500,6 +499,23 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .services h2,
+    .projects h2,
+    .calculator h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -525,12 +541,43 @@ body {
         font-size: 2.5rem;
     }
 
+    .hero p {
+        font-size: 1rem;
+    }
+
     .calculator-container {
         grid-template-columns: 1fr;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Colunas em uma única coluna */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        padding: 1rem; /* Reduzir o padding em telas menores */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Reduzir o tamanho do botão */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.5rem; /* Reduzir o padding dos inputs */
     }
 }
 
@@ -548,4 +595,17 @@ body {
 
 .fade-in {
     animation: fadeIn 0.5s ease forwards;
+}
+
+/* Imagens Responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajustes de Containers */
+.calculator-container,
+.contact-container {
+    width: 100%;
+    max-width: 100%;
 }
